@@ -5,6 +5,17 @@
     height: 100vh;
 }
 
+.dinner-title {
+    text-align: center;
+    font-weight: bold;
+    font-size: 30px;
+    padding: 20px;
+}
+
+.dinner-table {
+    min-width: 600px;
+}
+
 .dinner-table td {
     font-size: 22px;
     padding: 16px;
