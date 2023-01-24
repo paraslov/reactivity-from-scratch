@@ -21,3 +21,11 @@
     padding: 16px;
     border: 1px solid gray;
 }
+
+.dinner-table button {
+    width: 50px;
+    padding: 10px;
+    background-color: azure;
+    border: 1px solid teal;
+    border-radius: 10px;
+}
