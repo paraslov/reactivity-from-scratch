@@ -1,4 +1,5 @@
 // iteration 1
+
 // let dep = new Set()
 //
 // function track() {
@@ -55,19 +56,19 @@
 
 // iteration 3
 
-const data = {
-  price: 100,
-  tips: 20,
-  taxes: 22,
-  total: 0,
-}
-const effect = () => {
-  data.total = Math.ceil(data.price * (1 + data.taxes / 100) + data.tips)
-}
+// const data = {
+//   price: 100,
+//   tips: 20,
+//   taxes: 22,
+//   total: 0,
+// }
+// const effect = () => {
+//   data.total = Math.ceil(data.price * (1 + data.taxes / 100) + data.tips)
+// }
 
 const targetMap = new WeakMap()
 
-function track(target, key) {
+function track(target, key, effect) {
   let depsMap = targetMap.get(target);
   if (!depsMap) {
     targetMap.set(target, (depsMap = new Map()))
@@ -91,6 +92,6 @@ function trigger(target, key) {
   }
 }
 
-track(data, 'price')
-
-effect()
+// track(data, 'price')
+//
+// effect()

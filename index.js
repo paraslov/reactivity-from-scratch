@@ -31,31 +31,26 @@ const render = () => {
   `
 }
 
-let watchingFn = null
+let effect = null
 
 const watcher = (target) => {
-  watchingFn = target
+  effect = target
   target()
-  watchingFn = null
+  effect = null
 }
 
 function observe(data) {
-  const depends = {}
-
   return new Proxy(data, {
     get(obj, key) {
-      if (watchingFn) {
-        if (!depends[key]) depends[key] = []
-        depends[key].push(watchingFn)
+      if (effect) {
+        track(obj, key, effect)
       }
 
       return obj[key]
     },
     set(obj, key, value) {
       obj[key] = value
-      if (depends[key]) {
-        depends[key].forEach(cb => cb());
-      }
+      trigger(obj, key)
     }
   })
 }
