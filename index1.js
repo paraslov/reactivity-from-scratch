@@ -36,17 +36,3 @@ paint()
 price = 7000
 updateTotal()
 paint()
-
-const person = {
-  name: 'Sergei',
-  lastName: 'Balanov',
-}
-
-const proxy = new Proxy(person, {
-  get(target, key) {
-    if (key === 'fullName') {
-      return target.name + ' ' + target.lastName
-    }
-    return target[key]
-  }
-})
