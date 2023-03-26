@@ -67,17 +67,12 @@
 // }
 
 const targetMap = new WeakMap()
-
 function track(target, key, effect) {
-  let depsMap = targetMap.get(target);
-  if (!depsMap) {
-    targetMap.set(target, (depsMap = new Map()))
-  }
+  let depsMap = targetMap.get(target)
+  if (!depsMap) targetMap.set(target, (depsMap = new Map()))
 
   let dep = depsMap.get(key)
-  if (!dep) {
-    depsMap.set(key, (dep = new Set()))
-  }
+  if (!dep) depsMap.set(key, (dep = new Set()))
 
   dep.add(effect)
 }
